@@ -13,17 +13,17 @@ COPY src ./src
 # Build the jar
 RUN mvn clean package -DskipTests
 
-
 # ---------- Stage 2: Run ----------
-FROM eclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
-# Copy jar from builder stage
-COPY --from=builder /app/target/*.jar app.jar
+# Copy jar from builder stage (explicit name — no glob ambiguity)
+COPY --from=builder /app/target/campus-service-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose port (Render uses 8080 by default)
+# Expose port (Render uses $PORT env var, defaults to 8080)
 EXPOSE 8080
 
 # Run the application
+# Pass Spring's server.port from Render's $PORT env var at runtime
 ENTRYPOINT ["java", "-jar", "app.jar"]
