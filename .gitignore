@@ -1,0 +1,14 @@
+# Maven
+target/
+
+# Eclipse (VERY IMPORTANT)
+.metadata/
+.settings/
+.classpath
+.project
+
+# Node
+node_modules/
+
+# Env
+.env
