@@ -80,4 +80,8 @@ public class AuthService {
             throw new IllegalArgumentException("Invalid credentials");
         }
     }
+    private LoginRequest.Response authenticateAdmin(LoginRequest.Request req) {
+    System.out.println("FRESH HASH: " + passwordEncoder.encode("admin123"));
+    // ... rest of code
+}
 }
