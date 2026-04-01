@@ -75,4 +75,14 @@ public class AuthService {
             throw new IllegalArgumentException("Invalid credentials");
         }
     }
+    private void validatePassword(String raw, String encoded) {
+    System.out.println("=== PASSWORD DEBUG ===");
+    System.out.println("Raw: " + raw);
+    System.out.println("Encoded: " + encoded);
+    System.out.println("Match: " + passwordEncoder.matches(raw, encoded));
+    System.out.println("=====================");
+    if (!passwordEncoder.matches(raw, encoded)) {
+        throw new IllegalArgumentException("Invalid credentials");
+    }
+}
 }
