@@ -18,6 +18,9 @@ public class JwtUtil {
     private long expirationMs;
 
     private Key getKey() {
+        if (secret == null || secret.length() < 32) {
+            throw new IllegalStateException("JWT secret must be at least 32 characters");
+        }
         return Keys.hmacShaKeyFor(secret.getBytes());
     }
 
