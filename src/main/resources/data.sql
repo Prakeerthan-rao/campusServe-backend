@@ -12,8 +12,8 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 -- ADMIN (password = admin123)
-INSERT INTO admin (id, username, password, email, full_name)
-VALUES (1, 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'admin@campus.edu', 'System Admin')
+INSERT INTO admin (id, username, password, email, full_name, role)
+VALUES (1, 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'admin@campus.edu', 'System Admin', 'ADMIN')
 ON CONFLICT (id) DO NOTHING;
 
 -- STAFF (password = staff123)
