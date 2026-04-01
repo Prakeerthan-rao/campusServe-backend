@@ -25,9 +25,9 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 -- STUDENTS (password = student123)
-INSERT INTO student (id, username, password, email, full_name, roll_number, department_id, year)
+INSERT INTO student (id, username, password, email, full_name, roll_number, department_id, year, role)
 VALUES
-  (1, 'john_doe',   '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'john@campus.edu', 'John Doe',   'CS2021001', 1, 3),
-  (2, 'jane_smith', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'jane@campus.edu', 'Jane Smith', 'EC2021002', 1, 2),
-  (3, 'bob_wilson', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'bob@campus.edu',  'Bob Wilson', 'ME2022001', 1, 1)
+  (1, 'john_doe',   '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'john@campus.edu', 'John Doe',   'CS2021001', 1, 3, 'STUDENT'),
+  (2, 'jane_smith', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'jane@campus.edu', 'Jane Smith', 'EC2021002', 1, 2, 'STUDENT'),
+  (3, 'bob_wilson', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lFiy', 'bob@campus.edu',  'Bob Wilson', 'ME2022001', 1, 1, 'STUDENT')
 ON CONFLICT (id) DO NOTHING;
