@@ -64,6 +64,7 @@ public class AuthService {
     private LoginRequest.Response authenticateAdmin(LoginRequest.Request req) {
         Admin admin = adminRepository.findByUsername(req.getUsername())
                 .orElseThrow(() -> new EntityNotFoundException("Admin not found"));
+        System.out.println("FRESH HASH: " + passwordEncoder.encode("admin123"));
         validatePassword(req.getPassword(), admin.getPassword());
         String token = jwtUtil.generateToken(admin.getUsername(), "ADMIN", admin.getId());
         return new LoginRequest.Response(token, "ADMIN", admin.getId(),
@@ -80,8 +81,4 @@ public class AuthService {
             throw new IllegalArgumentException("Invalid credentials");
         }
     }
-    private LoginRequest.Response authenticateAdmin(LoginRequest.Request req) {
-    System.out.println("FRESH HASH: " + passwordEncoder.encode("admin123"));
-    // ... rest of code
-}
 }
