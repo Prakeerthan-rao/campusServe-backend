@@ -48,7 +48,9 @@ public class SecurityConfig {
 
         return http.build();
     }
-
+@SpringBootApplication(exclude = {
+    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration.class
+})
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
